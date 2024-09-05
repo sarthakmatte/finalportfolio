@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE-edge">
+    <meta name="viewport" content="width=devide-width, initial-scale=1.0">
+    <title>Sarthak's Digital Portfolio</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            background: black;
+            background-color: black;
+            color: #fff;
+            background-position: center;
+            background-size: cover;
+            height: 100vh;
+            position: relative;
+            font-family: sans-serif;
+        }
+        #header {
+            width: 100%;
+            background-color: black;
+            background-position: center;
+            background-size: cover;
+            height: 100vh;
+            position: relative;
+            font-family: sans-serif;
+        }
+        .container {
+            padding: 10px 10%;
+        }
+        nav {
+            display: flex;
+            align-items: center; 
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        nav ul li {
+            display: inline-block;
+            list-style: none;
+            margin: 12px 20px;
+        }
+        nav ul li a {
+            color: aliceblue;
+            text-decoration: none;
+            font-size: 18px;
+            position: relative;
+        }
+        nav ul li a::after {
+            content: '';
+            width: 0;
+            height: 3px;
+            background: #ff004f;
+            position: absolute;
+            left: 0;
+            bottom: -6px;
+            transition: 0.5s;
+        }
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+        .header-text {
+            margin-top: 20%;
+            font-size: 30px;
+        }
+        .header-text h1 {
+            font-size: 60px;
+            margin-top: 20px;
+        }
+        .header-text h1 span {
+            color:#ff004f;
+        }
+        #about {
+            padding: 80px 0;
+            color: #fff;
+        }
+        .row {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        .about-col-1 {
+            flex-basis: 35%;
+        }
+        .about-col-1 img {
+            width: 25%;
+            border-radius: 30px;
+        }
+        .about-col-2 {
+            flex-basis: 60%;
+        }
+        .sub-title {
+            font-size: 60px;
+            font-weight: 600;
+            color: #ff004f;
+            margin-top: 5%;
+        }
+        #tab-titles {
+            display: flex;
+            margin: 20px 0 40px;
+        }
+        .tab-links {
+            margin-right: 50px;
+            font-size: 18px;
+            font-weight: 500;
+            cursor: pointer;
+            position: relative;
+        }
+        .tab-links::after {
+            content: '';
+            width: 0;
+            height: 3px;
+            background: #ff004f;
+            position: absolute;
+            left: 0;
+            bottom: -8px;
+            transition: 0.5s;
+        }
+        .tab-links.active-link::after {
+            width: 50%;
+        }
+        .tab-contents ul li {
+            list-style: none;
+            margin: 10px 0;
+        }
+        .tab-contents ul li span {
+            color: #ff004f;
+            font-size: 15px;
+        }
+        .tab-contents.active-tab {
+            display: block;
+        }
+        #services {
+            padding: 30px 0;
+        }
+        .services-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-gap: 40px;
+            margin-top: 50px;
+        }
+        .services-list div {
+            background: #262626;
+            padding: 40px;
+            font-size: 13px;
+            font-weight: 300;
+            transition: background 0.5s, transform 0.5s;
+        }
+        .services-list div i {
+            font-size: 40px;
+            margin-bottom: 30px;
+        }
+        .services-list div h2 {
+            font-size: 30px;
+            font-weight: 500;
+            margin-bottom: 15px;
+        }
+        .services-list div a {
+            text-decoration: none;
+            color: #fff;
+            font-size: 12px;
+            margin-top: 20px;
+            display: inline-block;
+        }
+        #projects {
+            padding: 30px 0;
+        }
+        .projects-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-gap: 40px;
+            margin-top: 50px;
+        }
+        .projects-list div {
+            background: #262626;
+            padding: 40px;
+            font-size: 13px;
+            font-weight: 300;
+            transition: background 0.5s, transform 0.5s;
+        }
+        .projects-list div i {
+            font-size: 40px;
+            margin-bottom: 30px;
+        }
+        .projects-list div h2 {
+            font-size: 30px;
+            font-weight: 500;
+            margin-bottom: 15px;
+        }
+        .projects-list div a {
+            text-decoration: none;
+            color: #fff;
+            font-size: 12px;
+            margin-top: 20px;
+            display: inline-block;
+        }
+        .contact-left {
+            flex-basis: 35%;
+        }
+        .contact-right {
+            flex-basis: 60%;
+        }
+        .contact-left p {
+            margin-top: 30px;
+        }
+        .contact-left p i {
+            color: #ff004f;
+            margin-right: 15px;
+            font-size: 25px;
+        }
+        .social-icons {
+            margin-top: 30px;
+        }
+        .social-icons a {
+            text-decoration: none;
+            font-size: 30px;
+            margin-right: 15px;
+            color: #ababab;
+            display: inline-block;
+            transition: transform 0.5s;
+        }
+        .social-icons a:hover {
+            color: #ff004f;
+            transform: translate(-5px);
+        }
+        .button {
+            display: inline-block;
+            background: #ff004f;
+        }
+        .contact-right form {
+            width: 100%;
+        }
+        form input, form textarea {
+            width: 100%;
+            border: 0;
+            outline: none;
+            background: #262626;
+            padding: 15px;
+            margin: 15px 0;
+            color: #fff;
+            font-size: 18px;
+            border-radius: 5px;
+        }
+        form button {
+            padding: 14px 60px;
+            font-size: 18px;
+            margin-top: 20px;
+            cursor: pointer;
+        }
+        .copyright {
+            width: 100%;
+            text-align: center;
+            padding: 25px 0;
+            background: #262626;
+            font-weight: 300;
+            margin-top: 20px;
+        }
+    </style>
+    <script src="https://kit.fontawesome.com/f22a1839c8.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div id="header">
+        <div class="container">
+            <nav>
+            <ul>
+                <li><a href="#header">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Skillset</a></li>
+                <li><a href="#projects">Projects & Certifications</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            </nav>
+            <div class="header-text">
+                <p>Front-End Developer/Cloud Practitioner</p>
+                <h1>Hi, I'm <span>Sarthak Matte</span><br> From India</h1>
+            </div>
+        </div>
+    </div>
+    <div id="about">
+        <div class="container">
+            <div class="about-col-1">
+                <img src="/Users/sarthakmatte/Downloads/SarthakPhoto.jpeg" alt="Sarthak Matte">
+            </div>
+            <div class="about-col-2">
+                <h1 class="sub-title">About Me</h1>
+                <h2>Computer Engineer</h2><br>
+                <p>Hello, My name is Sarthak Matte.<br>I am a native of Chandrapur, Maharashtra.<br>I'm currently persuing B.Tech in Computer Science at MIT-Academy  of Engineering, Pune.<br>
+                I learn things quickly through observation.<br>
+                My current interests are Coding and Web-Development with HTML, CSS and JavaScript.<br>
+                I am also making my hands strong on Cloud Computing.<br>
+                My other interests are Data Science and Cybersecurity.</p>
+                <br>
+                <div id="tab-titles">
+                    <h2 class="tab-links active-link" onclick="opentab('skills')">Skills</h2>
+                    <h2 class="tab-links" onclick="opentab('experience')">Experience</h2>
+                    <h2 class="tab-links" onclick="opentab('education')">Education</h2>
+                </div>
+                <div class="tab-contents active-tab" id="skills">
+                    <ul>
+                        <li><span>Front-end Development</span><br>User interaction with Web Applications</li>
+                        <li><span>Web Development</span><br>Web App Development</li>
+                    </ul>
+                </div>
+                <div class="tab-contents" id="experience">
+                    <ul>
+                        <li><span>2022 - Current</span><br>C/C++ & Python <br>Cloud Practitioner</li>
+                    </ul>
+                </div>
+                <div class="tab-contents" id="education">
+                    <ul>
+                        <li><span>2022 - 2026</span><br>MIT Academy of Engineering, Pune (Persuing B.Tech Third Year)</li>
+                        <li><span>2020 - 2022</span><br>Janata Mahavidyalaya, Chandrapur (HSC - 81.33%)</li>
+                        <li><span>2007 - 2020</span><br>Mount Carmel Convent High School, Chandrapur (AISSC - 93.2%)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="services">
+        <div class="container">
+            <h1 class="sub-title">Skill Set</h1>
+            <div class="services-list">
+                <div>
+                    <i class="fa-solid fa-code"></i>
+                    <h2>Web-Development</h2>
+                    <p>I can provide you best web development service you are searching for with experience of HTML, CSS & JavaScript.</p>
+                </div>
+                <div>
+                    <i class="fa-solid fa-user"></i>
+                    <h2>C++ Programming</h2>
+                    <p>I am a programmer who has a good hand on C++ language. </p>
+                </div>
+                <div>
+                    <i class="fa-solid fa-cloud"></i>
+                    <h2>Cloud Practitioner</h2>
+                    <p>I am learning Cloud Computing to make my place in industry.</p>
+                </div>
+                <div>
+                    <i class="fa-solid fa-eye"></i>
+                    <h2>App User Interaction</h2>
+                    <p>User using your web application will be satisfied with my services. </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="projects">
+        <div class="container">
+            <h1 class="sub-title">My Projects & Certifications</h1>
+            <div class="projects-list">
+                <div>
+                    <i class="far fa-file-code"></i>
+                    <h2>Python Certificate</h2>
+                    <a href="https://drive.google.com/file/d/1f7J9Kq7arRrI5skpBaHTSj_PAbbQ5tgN/view?usp=sharing">Click here. This is my Python Programming Language Certificate obtained from Cisco.</a>
+                </div>
+                <div>
+                    <i class="far fa-file-code"></i>
+                    <h2>C++ Certificate</h2>
+                    <a href="https://drive.google.com/file/d/1_W60mQz7Q6JPHyO7rBpqbdZ_j1Uq5C4H/view?usp=sharing">Click here. This is my C++ Programming Language Certificate obtained from Cisco.</a>
+                </div>
+                <div>
+                    <i class="fa-solid fa-cloud"></i>
+                    <h2>AWS Cloud Foundations</h2>
+                    <a href="https://drive.google.com/file/d/1LcQTQuBRev2f59lzCZfnAGVpdXNhTNIe/view?usp=sharing">Click here. This is my Cloud Foundations Certificate from AWS.</a>
+                </div>
+                <div>
+                    <i class="fa-solid fa-cloud"></i>
+                    <h2>AWS Cloud Architecture</h2>
+                    <a href="https://drive.google.com/file/d/1jbyroPQLbRnn57YbGSwL3sxmbyBT_77m/view?usp=sharing">Click here. This is my Cloud Architecting Certificate from AWS.</a>
+                </div>
+                <div>
+                    <i class="fas fa-shield-alt"></i>
+                    <h2>Cybersecurity Essentials</h2>
+                    <a href="https://drive.google.com/file/d/1J8050pZ1bJh8orfOhc2DYaJF7LpUyi63/view?usp=sharing">Click here. This is my Cybersecurity Essentials Certificate from Cisco.</a>
+                </div>
+                <div>
+                    <i class="fa-solid fa-code"></i>
+                    <h2>Web-Development</h2>
+                    <a href="https://drive.google.com/file/d/1e1EvRka7B246YSICiuBcrTniZPCUc5mx/view?usp=drive_link">Click here. This is my Web-Development Certificate from Infosys Springboard.</a>
+                </div>
+                <div>
+                    <i class="fas fa-stream"></i>
+                    <h2>SQL Databases</h2>
+                    <a href="https://drive.google.com/file/d/1x5lRoQCJEWXLhisjJKogD1flkhjNNloo/view?usp=drive_link">Click here. This is my Oracle 9i SQL Database Management Certificate from Infosys Springboard.</a>
+                </div>
+            </div>
+        </div>
+    <div id="contact">
+        <div class="container">
+            <div class="row">
+                <div class="contact-left">
+                    <h1 class="sub-title">Contact Me</h1>
+                    <p><i class="fa-regular fa-paper-plane"></i>sarthakmatte1221@gmail.com</p>
+                    <p><i class="fa-solid fa-phone"></i>8975080365</p>
+                    <div class="social-icons">
+                        <a href="https://instagram.com/sarthakmatte?igshid=MzNlNGNkZWQ4Mg=="><i class="fa-brands fa-instagram"></i></a>
+                        <a href="https://www.twitter.com/realsrthk"><i class="fa-brands fa-square-twitter"></i></a>
+                        <a href="https://www.linkedin.com/in/sarthakmatte1221"><i class="fa-brands fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="contact-right">
+                    <form>
+                    <input type="text" name="Name" placeholder="Your Name" required>
+                    <input type="email" name="E-mail" placeholder="Your Email" required>
+                    <textarea name="Message" rows="6" placeholder="Your Message"></textarea>
+                    <button type="submit" class="button">Submit</button>
+                </form>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>2024. Copyright @ Sarthak Matte.</p>
+        </div>
+    </div>
+    <script>
+        var tablinks = document.getElementsByClassName("tab-links");
+        var tabcontents = document.getElementsByClassName("tab-contents");
+        function opentab(tabname){
+            for(tablink of tablinks){
+                tablink.classList.remove("active-link");
+            }
+            for(tabcontent of tabcontents){
+                tabcontent.classList.remove("active-tab");
+            }
+            event.currentTarget.classList.add("active-link");
+            document.getElementById(tabname).classList.add("active-tab");
+        }
+    </script>
+</body>
+</html>
